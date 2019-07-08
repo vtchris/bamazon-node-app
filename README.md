@@ -1,14 +1,14 @@
 ## bamazon-node-app
 Bamazon Node App
 
-##TECHNOLOGIES
+## TECHNOLOGIES
 <ul>
     <li>JavaScript</li>
     <li>mySql</li>
     <li>Node.js</li>    
 </ul>
 
-##CONCEPTS APPLIED
+## CONCEPTS APPLIED
 <ul>    
     <li>Modular Code</li>
     <li>Inquirer for user interaction</li> 
