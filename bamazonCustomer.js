@@ -1,29 +1,12 @@
 require("dotenv").config();
+var con = require('./sqlConnection.js');
 var Item = require("./objects.js");
 var inquirer = require("inquirer");
-var keys = require("./keys");
-var mysql = require('mysql');
 var Table = require('cli-table');
 
 const itemsArr = [];
 const LINE = "\n--------------------------------------------------";
-const mySql_ID = keys.mysql.id;
-const mySql_P = keys.mysql.p;
 const RECEIPT = [];
-
-//DB Connection
-var con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: mySql_ID,
-  password: mySql_P,
-  database: 'bamazon_db',
-  multipleStatements: true
-});
-
-con.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
 
 display_table();
 
@@ -59,15 +42,13 @@ function display_table() {
 
     console.log(table.toString());
 
-    setTimeout(select_item, 3000);
-    //select_item();
-
+    setTimeout(select_item, 3000);    
   })
 }
-
 function select_item() {
 
   let array = [];
+  RECEIPT.length = 0;
 
   //Create list of items with inventory
   for (var i = 0; i < itemsArr.length; i++) {
@@ -104,7 +85,7 @@ function select_item() {
     } 
     if (isNaN(response.quantity)) {
 
-      console.log(LINE + "TRANSACTION CANCELLED, INVALID QUANTITY" + LINE);
+      console.log(LINE + "\nTRANSACTION CANCELLED, INVALID QUANTITY" + LINE);
 
       select_item();
       return;
@@ -129,27 +110,21 @@ function select_item() {
           display_receipt(results[0][0]['LAST_INSERT_ID()']);
 
         });
-
-        select_item();
-
       } else {
 
         display_receipt();
 
       }
-
     } else {
 
       console.log(LINE + "\nSorry, we do not have enough inventory to fill this request." + LINE)
       select_item();
 
     }
-
   })
-
 }
 function display_receipt(recptNbr) {
-
+  
   let table = new Table({
     head: ['ITEM', 'QTY', 'PRICE', 'EXT']
     , colWidths: [15, 10, 10, 10]
@@ -179,7 +154,7 @@ function display_receipt(recptNbr) {
 
   console.log("Thank you for shopping at Bamazon!" + LINE + "\n");
 
-  setTimeout(display_table, 5000);
+  setTimeout(display_table, 4000);
 }
 
 function findItemByProperty(array, property, value) {

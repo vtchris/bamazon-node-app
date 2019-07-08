@@ -1,6 +1,29 @@
 # bamazon-node-app
 Bamazon Node App
 
+#TECHNOLOGIES
+<ul>
+    <li>JavaScript</li>
+    <li>mySql</li>
+    <li>Node.js</li>    
+</ul>
+
+#CONCEPTS APPLIED
+<ul>    
+    <li>Modular Code</li>
+    <li>Inquirer for user interaction</li> 
+    <li>Stored Procedures</li>   
+</ul>
+
+![](assets/images/customer.gif)
+<ul>
+    <li>From command line, in appropriate folder, type `node bamazonCustomer`</li>
+    <li>Select product from the list and press enter.</li>
+    <li>Enter the quantity to purchase and press enter.</li>
+    <li>Confirm you would like to complete the sale y/n.</li>
+    <li>View receipt, application will reset for next customer.</li>    
+</ul>
+
 ## Requirements
 # Node.js & MySQL
 

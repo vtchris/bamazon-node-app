@@ -12,12 +12,12 @@ var con = mysql.createConnection({
     host: "127.0.0.1",
     user: mySql_ID,
     password: mySql_P,
-    database: 'bamazon_db',
-    multipleStatements: true
+    database: 'bamazon_db'//,
+    //multipleStatements: true
   });
   
-  con.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
+  // con.connect(function (err) {
+  //   if (err) throw err;
+  //   console.log("Connected!");
+  // });
   module.exports = con
