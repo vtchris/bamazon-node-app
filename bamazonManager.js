@@ -44,7 +44,7 @@ function display_menu() {
 }
 function display_inventory(sqlStr) {
 
-    console.log(con)
+    //console.log(con)
     //con.connect();
     var table = new Table({
         head: ['DEPT', 'ID', 'ITEM', 'COST', 'PRICE', 'MSRP', 'QTY']
@@ -53,7 +53,7 @@ function display_inventory(sqlStr) {
     });
 
     con.query(sqlStr, function (err, results) {
-        console.log(con.threadId)
+        //console.log(con.threadId)
         for (var i = 0; i < results.length; i++) {
 
             table.push(
@@ -76,6 +76,7 @@ function display_inventory(sqlStr) {
 }
 function inventory_menu() {
 
+    //Create list of inventory items
     con.query("SELECT item_id, itm_name FROM items", function (err, results) {
 
         let array = [];
@@ -112,6 +113,7 @@ function inventory_menu() {
 }
 function add_newItem() {
 
+    //Select list of departments for use by the inquirer
     con.query("SELECT dept_id, dept_name FROM departments", function (err, results) {
 
         let array = [];
@@ -170,19 +172,19 @@ function add_newItem() {
             console.log(LINE + '\n' + response.name.toUpperCase() + ' Added!' + LINE);
             setTimeout(display_menu, 3000);
 
-        })
-
-        
+        })        
     })
 }
 function view_sales() {
 
+    //Create table headers
     var table = new Table({
         head: ['DEPT ID', 'DEPT', 'EXPENSES', 'SALES', 'PROFIT']
         , colWidths: [10, 15, 10, 10, 10]
         , colAligns: [null, null, 'right', 'right', 'right']
     });
 
+    //Create list of sales, using outer join to show departments without sales
     var sqlStr = "SELECT d.dept_id,d.dept_name,d.operating_expenses,"
         + "COALESCE(SUM(s.sale_total),0) AS sales, COALESCE(SUM(s.sale_total),0) - d.operating_expenses AS profit "
         + "FROM items AS i "
@@ -192,7 +194,7 @@ function view_sales() {
 
     con.query(sqlStr, function (err, results) {
         if (err) { console.log(err) };
-        console.log(con.threadId)
+        //console.log(con.threadId)
         for (var i = 0; i < results.length; i++) {
 
             table.push(
@@ -233,7 +235,7 @@ function add_department() {
             ]
         );
 
-        console.log("New Deppartment Added!")
+        console.log("New Department Added!")
         setTimeout(display_menu, 3000);
     })
 }

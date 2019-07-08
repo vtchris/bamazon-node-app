@@ -15,6 +15,7 @@ Bamazon Node App
     <li>Stored Procedures</li>   
 </ul>
 
+## CUSTOMER 
 ![](assets/images/customer.gif)
 <ul>
     <li>From command line, in appropriate folder, type `node bamazonCustomer`</li>
@@ -22,6 +23,15 @@ Bamazon Node App
     <li>Enter the quantity to purchase and press enter.</li>
     <li>Confirm you would like to complete the sale y/n.</li>
     <li>View receipt, application will reset for next customer.</li>    
+</ul>
+
+## MANAGER
+![](assets/images/manager.gif)
+<ul>
+    <li>From command line, in appropriate folder, type `node bamazonManager`</li>
+    <li>Select various reports to view inventory and sales totals.</li>
+    <li>Add Inventory.</li>
+    <li>Create new items and departments.</li>       
 </ul>
 
 ## Requirements
