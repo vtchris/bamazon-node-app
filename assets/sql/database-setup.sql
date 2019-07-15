@@ -43,12 +43,12 @@ VALUES			("Gullivers Travels",1,5,7.5,8,10,NOW()),
                 
 CREATE TABLE  sales(
 			  receipt_id 	INTEGER(11) AUTO_INCREMENT NOT NULL,
-              dt_sold		DATETIME,
+        dt_sold		DATETIME,
 			  itm_id		INTEGER(11),
 			  itm_cost		DECIMAL(13,2),
 			  itm_prc		DECIMAL(13,2),
-              qty_sold		INTEGER(11),
-              sale_total	DECIMAL(13,2),		  
+        qty_sold		INTEGER(11),
+        sale_total	DECIMAL(13,2),		  
 			  
 			  PRIMARY KEY (receipt_id)
 );
